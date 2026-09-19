@@ -8,8 +8,7 @@ spring:
     ollama:
       base-url: http://localhost:11434
       chat:
-        options:
-          model: llama3.2
+        model: llama3.2
 
 management:
   endpoints:
@@ -19,6 +18,7 @@ management:
 
 logging:
   level:
+    io.github.iweidujiang.springaisourcenotes.advisor: INFO
     org.springframework.ai: DEBUG
     org.springframework.ai.chat.client: DEBUG
     org.springframework.ai.chat.client.advisor: DEBUG
