@@ -9,16 +9,29 @@ spring:
       base-url: http://localhost:11434
       chat:
         model: llama3.2
+    chat:
+      client:
+        observations:
+          log-prompt: true
+          log-completion: true
+      observations:
+        log-prompt: true
+        log-completion: true
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics
+  endpoint:
+    metrics:
+      enabled: true
 
 logging:
   level:
     io.github.iweidujiang.springaisourcenotes.advisor: INFO
+    io.github.iweidujiang.springaisourcenotes.tool: INFO
+    io.github.iweidujiang.springaisourcenotes.observation: INFO
     org.springframework.ai: DEBUG
     org.springframework.ai.chat.client: DEBUG
     org.springframework.ai.chat.client.advisor: DEBUG
